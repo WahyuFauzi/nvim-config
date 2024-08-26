@@ -13,8 +13,7 @@ vim.api.nvim_set_keymap('v', 'p', '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'P', '"+P', { noremap = true, silent = true })
 -- navigation
 vim.opt.relativenumber = true
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
-vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', { desc = 'nvimtree toggle window' })
+vim.keymap.set('n', '<C-n>', ':Ex<CR>', { desc = 'nvimtree toggle window' })
 -- Move to the previous/next buffer
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })

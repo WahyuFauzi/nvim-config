@@ -50,13 +50,16 @@ lspconfig.tsserver.setup({
 lspconfig.lua_ls.setup{}
 
 -- indentation and block
-require("ibl").setup({}) 
+require('mini.indentscope').setup({
+  symbol = '|',
+})
+-- require("ibl").setup({}) 
+
+-- status line
+require('mini.statusline').setup()
 
 --comment
 require('Comment').setup()
-
--- file explorer
-require("nvim-tree").setup()
 
 -- bufferline
 vim.opt.termguicolors = true
