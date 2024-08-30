@@ -1,4 +1,2 @@
-require("ftplugin")
-require("default")
-
+require("config")
 vim.opt.number = true
