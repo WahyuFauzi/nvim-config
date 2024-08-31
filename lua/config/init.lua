@@ -1,5 +1,6 @@
 require("config.lazy")
 require("config.mapping")
+require("config.lsp-config")
 
 require("telescope").setup({})
 require'nvim-treesitter.configs'.setup {
