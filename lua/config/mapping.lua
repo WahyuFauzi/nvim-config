@@ -19,7 +19,12 @@ wk.add({
     end,
     desc = "flash",
     mode = "n"
-  }
+  },
+  { "<leader>h", "<cmd>nohlsearch<CR>", desc = "Stop highlight", mode = "n" },
+  { "g", group = "goto" }, -- group
+  { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "jump to definition", mode = "n" },
+  { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "jump to declaration", mode = "n" },
+
 })
 
 -- move in insert
@@ -29,7 +34,12 @@ map("i", "<C-h>", "<Left>", { desc = "move left" })
 map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
-map('n', '<C-n>', ':Ex<CR>', { desc = 'nvimtree toggle window' })
+map('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
+
+map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
 -- copy and paste
 -- Yank to clipboard
@@ -54,5 +64,10 @@ vim.api.nvim_set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = tr
 --close buffer
 vim.api.nvim_set_keymap('n', '<leader>x', ':bw<CR>', { silent = true })
 
---search
--- vim.keymap.set('n', '<leader>s', function() require("flash").jump() end, { desc = "flash" })
+local ls = require("luasnip")
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
