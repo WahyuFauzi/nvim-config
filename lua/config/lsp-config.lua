@@ -31,3 +31,5 @@ lspconfig.clangd.setup{}
 -- lspconfig.sqlls.setup{}
 -- lspconfig.sqls.setup{}
 lspconfig.html.setup{}
+
+lspconfig.gopls.setup({})

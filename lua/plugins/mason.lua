@@ -15,9 +15,7 @@ return {
           "html",
           "jdtls",
           "gopls",
-          "clangd",
-          "sqlls",
-          "sqls"
+          "clangd"
         }
       })
     end
@@ -29,5 +27,5 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     lazy = false
-  }
+  },
 }
