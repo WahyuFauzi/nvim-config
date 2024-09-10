@@ -62,9 +62,9 @@ cmp.setup({
     mapping = {
       -- This mapping triggers completion on Enter key press
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    },
+      ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+   },
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
@@ -193,3 +193,4 @@ require("nvim-tree").setup({
       },
     }
 })
+
