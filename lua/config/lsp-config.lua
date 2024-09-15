@@ -2,7 +2,15 @@ local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 lspconfig.lua_ls.setup({})
 
-lspconfig.tsserver.setup({
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.eslint,  -- For linting
+    -- null_ls.builtins.code_actions.eslint, -- For ESLint autofix
+  },
+})
+
+lspconfig.ts_ls.setup({
   capabilities = capabilities,
   filetypes = {
     "javascript",
@@ -33,3 +41,5 @@ lspconfig.clangd.setup{}
 lspconfig.html.setup{}
 
 lspconfig.gopls.setup({})
+
+-- lspconfig.yamlls.setup()

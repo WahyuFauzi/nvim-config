@@ -15,7 +15,9 @@ return {
           "html",
           "jdtls",
           "gopls",
-          "clangd"
+          "clangd",
+          "eslint",
+          "yamlls"
         }
       })
     end
@@ -28,4 +30,10 @@ return {
     "mfussenegger/nvim-jdtls",
     lazy = false
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("null-ls").setup()
+    end
+  }
 }
