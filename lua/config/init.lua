@@ -20,7 +20,6 @@ require("telescope").setup({
       n = { ["q"] = require("telescope.actions").close },
     },
   },
-
   extensions_list = { "themes", "terms" },
   extensions = {},
 })
@@ -117,17 +116,24 @@ require('lualine').setup {
     },
     ignore_focus = {},
     always_divide_middle = true,
+    always_show_tabline = true,
     globalstatus = false,
     refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+      statusline = 100,
+      tabline = 100,
+      winbar = 100,
     }
   },
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {
+      {
+        'filename',
+        file_status = true,
+        path = 1, -- Use the same options as above
+      }
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -145,7 +151,6 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
-
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
@@ -193,3 +198,46 @@ require("nvim-tree").setup({
       },
     }
 })
+
+-- Default options:
+require('kanagawa').setup({
+  compile = true,             -- enable compiling the colorscheme
+  undercurl = true,            -- enable undercurls
+  commentStyle = { italic = false },
+  functionStyle = {},
+  keywordStyle = { italic = false},
+  statementStyle = { bold = false },
+  typeStyle = {},
+  transparent = true,         -- do not set background color
+  dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+  terminalColors = false,       -- define vim.g.terminal_color_{0,17}
+  overrides = function(colors)
+      local theme = colors.theme
+      return {
+          TelescopeTitle = { fg = theme.ui.special, bold = true },
+          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+      }
+  end,
+  colors = {
+    theme = {
+      wave = {
+          ui = {
+              bg_gutter = "none"
+          }
+      },
+      all = {
+          ui = {
+              bg_gutter = "none"
+          }
+      }
+    }
+  },
+})
+
+-- setup must be called before loading
+vim.cmd("colorscheme kanagawa")

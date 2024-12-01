@@ -35,6 +35,7 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 map('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
+-- map('n', '<C-n>', ':Ex<CR>', { desc = 'Open explorer' })
 
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })

@@ -36,10 +36,6 @@ lspconfig.gopls.setup {
 }
 
 lspconfig.clangd.setup{}
--- lspconfig.sqlls.setup{}
--- lspconfig.sqls.setup{}
 lspconfig.html.setup{}
-
-lspconfig.gopls.setup({})
 
 -- lspconfig.yamlls.setup()
