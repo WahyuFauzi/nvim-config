@@ -1,0 +1,5 @@
+Buat chat ui seperti chatbot-ui-lite
+
+chat akan berisi list table seperti messages yang bisa dikirimkan ke groq api
+
+bisik bisa membaca tool, prompt dan reource dari mcp server

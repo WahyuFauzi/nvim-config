@@ -36,6 +36,7 @@ require'nvim-treesitter.configs'.setup {
     "typescript",
     "javascript",
     "vue",
+    "svelte",
     "java",
     "kotlin",
     "go",
@@ -413,5 +414,6 @@ require('kanagawa').setup({
   },
 })
 
--- setup must be called before loading
 vim.cmd("colorscheme kanagawa-dragon")
+
+require("bisik").setup()

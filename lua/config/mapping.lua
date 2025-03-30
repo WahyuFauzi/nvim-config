@@ -72,3 +72,16 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 		ls.change_choice(1)
 	end
 end, {silent = true})
+
+-- dap
+local dap = require("dap")
+vim.keymap.set("n", "<F5>", dap.continue, { desc = "Start/Continue Debugging" })
+vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step Over" })
+vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step Into" })
+vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Step Out" })
+vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+vim.keymap.set("n", "<Leader>B", function()
+  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "Set Conditional Breakpoint" })
+vim.keymap.set("n", "<Leader>dr", dap.repl.open, { desc = "Open Debug REPL" })
+vim.keymap.set("n", "<Leader>dl", dap.run_last, { desc = "Run Last Debug Session" })
