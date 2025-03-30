@@ -4,28 +4,6 @@ vim.opt.expandtab = true   -- Use spaces instead of tabs
 vim.cmd("set number relativenumber")
 
 local map = vim.keymap.set
-local wk = require("which-key")
-wk.add({
-  -- telescope
-  { "<leader>f", group = "file" }, -- group
-  { "<leader>fw", "<cmd>Telescope live_grep<CR>", desc = "telescope live grep", mode = "n" },
-  { "<leader>fa", "<cmd>Telescope find_files<cr>", desc = "find all files", mode = "n" }, --only tracked
-  { "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "find in current buffer", mode = "n" },
-  { "<leader>cm", "<cmd>Telescope git_commits<CR>", desc = "telescope git commits", mode = "n" },
-  { "<leader>gt", "<cmd>Telescope git_status<CR>", desc = "telescope git status", mode = "n" },
-  { "<leader>s",
-    function()
-	    require("flash").jump()
-    end,
-    desc = "flash",
-    mode = "n"
-  },
-  { "<leader>h", "<cmd>nohlsearch<CR>", desc = "Stop highlight", mode = "n" },
-  { "g", group = "goto" }, -- group
-  { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "jump to definition", mode = "n" },
-  { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "jump to declaration", mode = "n" },
-
-})
 
 -- move in insert
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -35,7 +13,10 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 map('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
+map('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
 -- map('n', '<C-n>', ':Ex<CR>', { desc = 'Open explorer' })
+--   { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "jump to definition", mode = "n" },
+--   { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "jump to declaration", mode = "n" },
 
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
@@ -64,24 +45,3 @@ vim.api.nvim_set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = tr
 
 --close buffer
 vim.api.nvim_set_keymap('n', '<leader>x', ':bw<CR>', { silent = true })
-
-local ls = require("luasnip")
-
-vim.keymap.set({"i", "s"}, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, {silent = true})
-
--- dap
-local dap = require("dap")
-vim.keymap.set("n", "<F5>", dap.continue, { desc = "Start/Continue Debugging" })
-vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step Over" })
-vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step Into" })
-vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Step Out" })
-vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-vim.keymap.set("n", "<Leader>B", function()
-  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-end, { desc = "Set Conditional Breakpoint" })
-vim.keymap.set("n", "<Leader>dr", dap.repl.open, { desc = "Open Debug REPL" })
-vim.keymap.set("n", "<Leader>dl", dap.run_last, { desc = "Run Last Debug Session" })

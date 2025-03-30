@@ -1,5 +1,4 @@
 local lspconfig = require("lspconfig")
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local function get_workspace_dir()
     -- Get the project name from the current directory
@@ -17,12 +16,10 @@ end
 
 if has_deno_json() then
   lspconfig.denols.setup {
-      root_dir = lspconfig.util.root_pattern("deno.json"),
-      capabilities = capabilities,
+      root_dir = lspconfig.util.root_pattern("deno.json")
   }
 else
   lspconfig.ts_ls.setup({
-    capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("package-lock.json"),
     single_file_support = false
   })
