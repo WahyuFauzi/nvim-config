@@ -45,6 +45,7 @@ return {
         Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
         Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
         Snacks.toggle.line_number():map("<leader>ul")
+        vim.opt.relativenumber = true
       end,
     })
   end,
