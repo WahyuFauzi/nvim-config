@@ -2,31 +2,31 @@ require("config.lazy")
 require("config.mapping")
 require("config.lsp-config")
 
-require("telescope").setup({
-  defaults = {
-    prompt_prefix = "   ",
-    selection_caret = " ",
-    entry_prefix = " ",
-    sorting_strategy = "ascending",
-    layout_config = {
-      horizontal = {
-        prompt_position = "top",
-        preview_width = 0.55,
-      },
-      width = 0.87,
-      height = 0.80,
-    },
-    file_ignore_patterns = {
-      "node_modules/",
-      "build/",
-    },
-    mappings = {
-      n = { ["q"] = require("telescope.actions").close },
-    },
-  },
-  extensions_list = { "themes", "terms" },
-  extensions = {},
-})
+-- require("telescope").setup({
+--   defaults = {
+--     prompt_prefix = "   ",
+--     selection_caret = " ",
+--     entry_prefix = " ",
+--     sorting_strategy = "ascending",
+--     layout_config = {
+--       horizontal = {
+--         prompt_position = "top",
+--         preview_width = 0.55,
+--       },
+--       width = 0.87,
+--       height = 0.80,
+--     },
+--     file_ignore_patterns = {
+--       "node_modules/",
+--       "build/",
+--     },
+--     mappings = {
+--       n = { ["q"] = require("telescope.actions").close },
+--     },
+--   },
+--   extensions_list = { "themes", "terms" },
+--   extensions = {},
+-- })
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
@@ -112,18 +112,6 @@ require('kanagawa').setup({
   transparent = true,         -- do not set background color
   dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
   terminalColors = false,       -- define vim.g.terminal_color_{0,17}
-  overrides = function(colors)
-      local theme = colors.theme
-      return {
-          TelescopeTitle = { fg = theme.ui.special, bold = true },
-          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-      }
-  end,
   colors = {
     theme = {
       wave = {
@@ -141,3 +129,12 @@ require('kanagawa').setup({
 })
 
 vim.cmd("colorscheme kanagawa-dragon")
+
+-- Override snack config
+vim.opt.tabstop = 2      -- Number of spaces a tab counts for
+vim.opt.shiftwidth = 2   -- Number of spaces for indentation
+vim.opt.softtabstop = 2  -- Spaces per Tab when editing
+vim.opt.expandtab = true -- Convert tabs to spaces
+
+Snacks.toggle.option("relativenumber", { name = "Relative Number" }):set(true)
+Snacks.toggle.line_number():set(true)
