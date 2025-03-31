@@ -129,12 +129,3 @@ require('kanagawa').setup({
 })
 
 vim.cmd("colorscheme kanagawa-dragon")
-
--- Override snack config
-vim.opt.tabstop = 2      -- Number of spaces a tab counts for
-vim.opt.shiftwidth = 2   -- Number of spaces for indentation
-vim.opt.softtabstop = 2  -- Spaces per Tab when editing
-vim.opt.expandtab = true -- Convert tabs to spaces
-
-Snacks.toggle.option("relativenumber", { name = "Relative Number" }):set(true)
-Snacks.toggle.line_number():set(true)
