@@ -19,7 +19,6 @@ local config = {
         '-Dlog.level=WARNING',
         '-Xmx2g', -- Increase memory if needed
         '--add-modules=ALL-SYSTEM',
-        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
         '--enable-preview', -- Enable preview features in Java 21 if needed
         '-jar', '/home/yuyuid/packages/jdtls-1.38/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar',

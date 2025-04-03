@@ -14,7 +14,6 @@ return {
           "ts_ls",
           "html",
           "jdtls",
-          "gopls",
           "clangd",
           "eslint",
           "yamlls"
