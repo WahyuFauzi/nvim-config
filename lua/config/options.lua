@@ -1,4 +1,3 @@
-require("config")
 vim.opt.expandtab = true     -- Convert tabs to spaces
 vim.opt.shiftwidth = 2       -- Indent by 2 spaces when using >>
 vim.opt.tabstop = 2          -- Show tab character as 2 spaces
