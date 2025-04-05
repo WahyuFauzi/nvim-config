@@ -156,6 +156,10 @@ return {
         end
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
+        -- Set command to use Snack Input
+        vim.keymap.set("n", ":", function()
+          Snacks.input.input({ prompt  = "Command" }, function(input) vim.cmd(input) end)
+        end)
         -- Create some toggle mappings
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
@@ -164,13 +168,6 @@ return {
         Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
-
-        vim.opt.expandtab = true     -- Convert tabs to spaces
-        vim.opt.shiftwidth = 2       -- Indent by 2 spaces when using >>
-        vim.opt.tabstop = 2          -- Show tab character as 2 spaces
-        vim.opt.softtabstop = 2      -- Insert 2 spaces when pressing Tab
-        vim.opt.number = true        -- Show absolute line numbers
-        vim.opt.relativenumber = true -- Optional: for relative numbers
       end,
     })
   end,

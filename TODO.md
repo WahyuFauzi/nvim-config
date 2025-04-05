@@ -12,14 +12,13 @@ Part 1
 [x] Setup keymap
 
 Part 2
-[ ] Repair input
-[ ] Repair LSP
-[ ] Add Lua LSP
-[ ] Add javascript LSP
-[ ] Add Java LSP
-[ ] Autocompletion (NVIM CMP)
-[ ] statusline (lualine)
-[ ] linting and formatting (conform, lint)
-[ ] trouble nvim
-[ ] commenting
-
+[x] Repair input
+[x] Repair LSP
+[x] Add Lua LSP
+[x] Add javascript LSP
+[x] Add Java LSP
+[x] Autocompletion (NVIM CMP)
+[x] statusline (lualine)
+[x] linting and formatting (conform, lint)
+[x] trouble nvim
+[x] commenting
