@@ -3,18 +3,17 @@ require("config.lspconfig")
 require("config.mapping")
 require("config.options")
 
-vim.opt.termguicolors = true
-vim.cmd("colorscheme kanagawa-dragon") 
+vim.cmd("colorscheme kanagawa-dragon")
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { 
-	  "c", 
-	  "lua", 
-	  "vim", 
-	  "vimdoc", 
-	  "markdown", 
-	  "markdown_inline" 
+  ensure_installed = {
+    "c",
+    "lua",
+    "vim",
+    "vimdoc",
+    "markdown",
+    "markdown_inline"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -37,11 +36,11 @@ require'nvim-treesitter.configs'.setup {
     disable = { "c", "rust" },
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
     end,
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -92,16 +91,3 @@ require("conform").setup({
     lsp_format = "fallback",
   },
 })
-
--- Lsp Setup
-require("mason").setup()
-require("mason-lspconfig").setup()
-
--- Lua LSP
-require("lspconfig").lua_ls.setup {}
-
--- Javascript/Typescript LSP
-require("lspconfig").ts_ls.setup {}
-
--- Java LSP
-require("lspconfig").jdtls.setup {}

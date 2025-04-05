@@ -86,7 +86,7 @@ return {
       timeout = 3000,
     },
     scope = { enabled = true },
-    inpute = { enabled = true }
+    input = { enabled = true }
   },
   keys = {
     -- Top Pickers & Explorer
@@ -164,13 +164,6 @@ return {
         Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
-
-        vim.opt.expandtab = true     -- Convert tabs to spaces
-        vim.opt.shiftwidth = 2       -- Indent by 2 spaces when using >>
-        vim.opt.tabstop = 2          -- Show tab character as 2 spaces
-        vim.opt.softtabstop = 2      -- Insert 2 spaces when pressing Tab
-        vim.opt.number = true        -- Show absolute line numbers
-        vim.opt.relativenumber = true -- Optional: for relative numbers
       end,
     })
   end,
