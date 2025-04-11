@@ -13,7 +13,9 @@ require 'nvim-treesitter.configs'.setup {
     "vim",
     "vimdoc",
     "markdown",
-    "markdown_inline"
+    "markdown_inline",
+    -- web dev
+    "html"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -133,3 +135,6 @@ require("conform").setup({
     lsp_format = "fallback",
   },
 })
+
+-- Bufferline
+require("bufferline").setup {}

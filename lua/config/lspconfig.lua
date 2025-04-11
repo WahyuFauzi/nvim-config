@@ -10,3 +10,6 @@ require("lspconfig").ts_ls.setup {}
 
 -- Java LSP
 require("lspconfig").jdtls.setup {}
+
+-- Java LSP
+require("lspconfig").html.setup {}

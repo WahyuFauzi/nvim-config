@@ -6,6 +6,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
+    image = { enabled = true },
     dashboard = {
       width = 60,
       row = nil,                                                                   -- dashboard position. nil for center
@@ -193,7 +194,7 @@ return {
         },
       },
     },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     indent = { enabled = true },
     notifier = {
       enabled = true,
@@ -221,14 +222,30 @@ return {
     { "<leader>gS",      function() Snacks.picker.git_stash() end,       desc = "Git Stash" },
     { "<leader>gd",      function() Snacks.picker.git_diff() end,        desc = "Git Diff (Hunks)" },
     { "<leader>gf",      function() Snacks.picker.git_log_file() end,    desc = "Git Log File" },
+    -- Buffer Navigation
+    --
+    {
+      "<Tab>",
+      function()
+        vim.cmd("bnext")
+      end,
+      desc = "Next Buffer",
+    },
+    {
+      "<S-Tab>",
+      function()
+        vim.cmd("bprevious")
+      end,
+      desc = "Previous Buffer",
+    },
     -- Other
-    { "<leader>.",       function() Snacks.scratch() end,                desc = "Toggle Scratch Buffer" },
-    { "<leader>S",       function() Snacks.scratch.select() end,         desc = "Select Scratch Buffer" },
-    { "<leader>bd",      function() Snacks.bufdelete() end,              desc = "Delete Buffer" },
-    { "<leader>cR",      function() Snacks.rename.rename_file() end,     desc = "Rename File" },
-    { "<leader>gg",      function() Snacks.lazygit() end,                desc = "Lazygit" },
-    { "<c-/>",           function() Snacks.terminal() end,               desc = "Toggle Terminal" },
-    { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,     desc = "LSP Symbols" },
+    { "<leader>.",  function() Snacks.scratch() end,            desc = "Toggle Scratch Buffer" },
+    { "<leader>S",  function() Snacks.scratch.select() end,     desc = "Select Scratch Buffer" },
+    { "<leader>bd", function() Snacks.bufdelete() end,          desc = "Delete Buffer" },
+    { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
+    { "<leader>gg", function() Snacks.lazygit() end,            desc = "Lazygit" },
+    { "<c-/>",      function() Snacks.terminal() end,           desc = "Toggle Terminal" },
+    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     {
       "<leader>N",
       desc = "Neovim News",
