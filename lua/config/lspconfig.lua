@@ -2,14 +2,29 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+local lspconfig = require("lspconfig")
 -- Lua LSP
-require("lspconfig").lua_ls.setup {}
+lspconfig.lua_ls.setup {}
 
--- Javascript/Typescript LSP
-require("lspconfig").ts_ls.setup {}
+-- Deno LSP
+lspconfig.denols.setup {
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
+-- NodeJS LSP
+lspconfig.ts_ls.setup {
+  root_dir = lspconfig.util.root_pattern("package.json"),
+  single_file_support = false
+}
 
 -- Java LSP
-require("lspconfig").jdtls.setup {}
+lspconfig.jdtls.setup {}
 
--- Java LSP
-require("lspconfig").html.setup {}
+-- HTML LSP
+lspconfig.html.setup {}
+
+-- Python LSP
+lspconfig.pylsp.setup {}
+
+-- Crystall LSP
+lspconfig.crystalline.setup {}
