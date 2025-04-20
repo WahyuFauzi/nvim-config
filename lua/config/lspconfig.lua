@@ -26,5 +26,5 @@ lspconfig.html.setup {}
 -- Python LSP
 lspconfig.pylsp.setup {}
 
--- Crystall LSP
-lspconfig.crystalline.setup {}
+-- Zig LSP
+lspconfig.zls.setup {}

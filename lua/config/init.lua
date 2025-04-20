@@ -12,10 +12,15 @@ require 'nvim-treesitter.configs'.setup {
     "lua",
     "vim",
     "vimdoc",
+    "python",
     "markdown",
     "markdown_inline",
     -- web dev
-    "html"
+    "html",
+    "javascript",
+    "typescript",
+    -- system dev
+    "zig"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -23,7 +28,7 @@ require 'nvim-treesitter.configs'.setup {
 
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = false,
+  auto_install = true,
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
