@@ -13,7 +13,7 @@ lspconfig.denols.setup {
 
 -- NodeJS LSP
 lspconfig.ts_ls.setup {
-  root_dir = lspconfig.util.root_pattern("package.json"),
+  root_dir = lspconfig.util.root_pattern("package-lock.json"),
   single_file_support = false
 }
 
@@ -26,5 +26,8 @@ lspconfig.html.setup {}
 -- Python LSP
 lspconfig.pylsp.setup {}
 
--- Zig LSP
-lspconfig.zls.setup {}
+-- Dart LSP
+lspconfig.dartls.setup {}
+
+-- Crystalline LSP
+lspconfig.crystalline.setup {}

@@ -20,7 +20,7 @@ require 'nvim-treesitter.configs'.setup {
     "javascript",
     "typescript",
     -- system dev
-    "zig"
+    "dart"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -28,7 +28,7 @@ require 'nvim-treesitter.configs'.setup {
 
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+  auto_install = false,
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -125,21 +125,31 @@ cmp.setup({
 })
 
 -- Conform Format on Save
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
+-- require("conform").setup({
+--   formatters_by_ft = {
+--     lua = { "stylua" },
     -- Conform will run multiple formatters sequentially
-    python = { "isort", "black" },
+    -- python = { "isort", "black" },
     -- Conform will run the first available formatter
-    javascript = { "prettierd", "prettier", stop_after_first = true },
+    -- javascript = { "prettierd", "prettier", stop_after_first = true },
     -- TODO setup java checkstyle
-  },
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_format = "fallback",
-  },
-})
+--   },
+--   format_on_save = {
+--     -- These options will be passed to conform.format()
+--     timeout_ms = 500,
+--     lsp_format = "fallback",
+--   },
+-- })
 
 -- Bufferline
 require("bufferline").setup {}
+
+-- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+-- parser_config.crystal = {
+--   install_info = {
+--     url = "/var/home/yuyuid/Projects/personal/tree-sitter-crystal",
+--     files = {"src/parser.c", "src/scanner.c"},
+--     branch = "main",
+--   },
+--   filetype = "cr",
+-- }
