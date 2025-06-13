@@ -20,7 +20,8 @@ require 'nvim-treesitter.configs'.setup {
     "javascript",
     "typescript",
     -- system dev
-    "dart"
+    "dart",
+    "query"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -144,12 +145,12 @@ cmp.setup({
 -- Bufferline
 require("bufferline").setup {}
 
--- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
--- parser_config.crystal = {
---   install_info = {
---     url = "/var/home/yuyuid/Projects/personal/tree-sitter-crystal",
---     files = {"src/parser.c", "src/scanner.c"},
---     branch = "main",
---   },
---   filetype = "cr",
--- }
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.crystal = {
+  install_info = {
+    url = "/var/home/yuyuid/Projects/personal/tree-sitter-crystal",
+    files = {"src/parser.c", "src/scanner.c"},
+    branch = "main",
+  },
+  filetype = "cr",
+}

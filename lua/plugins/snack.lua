@@ -168,6 +168,7 @@ return {
         regex = { icon = "R", value = false },
       },
       win = {
+        -- backdrop = { transparent = true },
         -- input window
         input = {
           keys = {

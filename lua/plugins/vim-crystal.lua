@@ -1,4 +1,4 @@
 return {
-  "vim-crystal/vim-crystal",
-  ft = "crystal"
+  -- "vim-crystal/vim-crystal",
+  -- ft = "crystal"
 }
