@@ -12,8 +12,16 @@ require 'nvim-treesitter.configs'.setup {
     "lua",
     "vim",
     "vimdoc",
+    "python",
     "markdown",
-    "markdown_inline"
+    "markdown_inline",
+    -- web dev
+    "html",
+    "javascript",
+    "typescript",
+    -- system dev
+    "dart",
+    "query"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -118,18 +126,31 @@ cmp.setup({
 })
 
 -- Conform Format on Save
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
+-- require("conform").setup({
+--   formatters_by_ft = {
+--     lua = { "stylua" },
     -- Conform will run multiple formatters sequentially
-    python = { "isort", "black" },
+    -- python = { "isort", "black" },
     -- Conform will run the first available formatter
-    javascript = { "prettierd", "prettier", stop_after_first = true },
+    -- javascript = { "prettierd", "prettier", stop_after_first = true },
     -- TODO setup java checkstyle
+--   },
+--   format_on_save = {
+--     -- These options will be passed to conform.format()
+--     timeout_ms = 500,
+--     lsp_format = "fallback",
+--   },
+-- })
+
+-- Bufferline
+require("bufferline").setup {}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.crystal = {
+  install_info = {
+    url = "/var/home/yuyuid/Projects/personal/tree-sitter-crystal",
+    files = {"src/parser.c", "src/scanner.c"},
+    branch = "main",
   },
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_format = "fallback",
-  },
-})
+  filetype = "cr",
+}
