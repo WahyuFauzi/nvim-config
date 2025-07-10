@@ -38,9 +38,3 @@ lspconfig.html.setup {}
 
 -- Python LSP
 lspconfig.pylsp.setup {}
-
--- Dart LSP
-lspconfig.dartls.setup {}
-
--- Crystalline LSP
-lspconfig.crystalline.setup {}
